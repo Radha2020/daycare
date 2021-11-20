@@ -60,8 +60,7 @@ export class StudentsAddComponent implements OnInit {
       dob: ["", [Validators.required]],
       bloodgroup:["", [Validators.required]],
       type:["", [Validators.required]],
-      terms:["", [Validators.required]],
-      
+      terms: [false, Validators.requiredTrue],
       medprblm:[""],
 
 
@@ -333,6 +332,9 @@ changeBlood(event){
 
 
 }
+
+    // convenience getter for easy access to form fields
+    get f() { return this.addStudentsForm.controls; }
 
 changeType(event){
   console.log(event.target.value);

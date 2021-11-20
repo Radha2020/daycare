@@ -490,25 +490,25 @@
                 </div>
               </div>
 
-              <div class="col-12 col-sm-12">
-              <div class="form-group">
-              <input type="checkbox" formControlName="terms" 
-                 [class.invalid]="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched">
-              I declare that the Details given above are true
-              <div
-              *ngIf="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched">
-              <small
-              *ngIf="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched"
-              class="text-danger"> *required</small>
-          </div>
-            
-            </div>
-            </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <input type="checkbox"
+                   [class.invalid]="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched"
+                  formControlName="terms">&nbsp;Rules  
+                  <div
+                  *ngIf="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched"
+                      class="text-danger"> *Accept the terms</small>
+              </div>
+                </div>
+              </div>
 
 
 
               <div class="col-12">
-                <button type="submit" class="btn btn-primary"  [disabled]="!addStudentsForm.valid">Submit</button>
+                <button type="submit" class="btn btn-primary" 
+                       >Submit</button>
               </div>
             </div>
           </form>
