@@ -1,0 +1,116 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Events</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+          <li class="breadcrumb-item active">Events</li>
+        </ul>
+      </div>
+      <div class="col-auto text-right float-right ml-auto">
+        <a routerLink = "/events/events-add" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+  
+  <div class="row">						
+    <div class="col-lg-12 col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div id="calendar">
+            <full-calendar
+  #fullcalendar
+  [options]="calendarOptions"
+  id="myCalendar"
+  ></full-calendar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- Add Event Modal -->
+   <div class="modal fade none-border" id="my_event">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Event</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form  [formGroup]="addEventsForm">
+          <label class='control-label'>Event Name</label>
+          <input class='form-control' placeholder='Insert Event Name' type='text'[class.invalid]="addEventsForm.get('eventName').invalid && addEventsForm.get('eventName').touched"
+          formControlName="eventName">
+          <div
+          *ngIf="addEventsForm.get('eventName').invalid && addEventsForm.get('eventName').touched">
+          <small
+              *ngIf="addEventsForm.get('eventName').invalid && addEventsForm.get('eventName').touched"
+              class="text-danger"> *Event Name is required</small>
+      </div>
+          <label class='control-label'>Category</label>
+          <select class='form-control' name='category' [class.invalid]="addEventsForm.get('category').invalid && addEventsForm.get('category').touched"
+          formControlName="category">
+            <option value='bg-danger'>Danger</option>
+            <option value='bg-success'>Success</option>
+            <option value='bg-purple'>Purple</option>
+            <option value='bg-primary'>Primary</option>
+            <option value='bg-info'>Info</option>
+            <option value='bg-warning'>Warning</option>;
+          </select>
+          <div
+          *ngIf="addEventsForm.get('category').invalid && addEventsForm.get('category').touched">
+          <small
+              *ngIf="addEventsForm.get('category').invalid && addEventsForm.get('category').touched"
+              class="text-danger"> *Category is required</small>
+      </div>
+        </form>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success save-event submit-btn" (click) = "addEvents()">Create event</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Add Event Modal -->
+
+   <!-- Edit Event Modal -->
+   <div class="modal fade none-border" id="edit_event">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Event</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="editEventsForm">
+            <label>Change event name</label>
+            <div class='input-group'>
+              <input class='form-control' type=text [class.invalid]="editEventsForm.get('eventName').invalid && editEventsForm.get('eventName').touched"
+              formControlName="eventName"><span class='input-group-append'><button type='submit' class='btn btn-success' (click) = "editEvents()"><i class='fa fa-check'></i> Save</button></span>
+              <div
+              *ngIf="editEventsForm.get('eventName').invalid && editEventsForm.get('eventName').touched">
+              <small
+                  *ngIf="editEventsForm.get('eventName').invalid && editEventsForm.get('eventName').touched"
+                  class="text-danger"> *Event Name is required</small>
+          </div>
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-danger delete-event submit-btn" (click)= "deleteEvents()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Edit Event Modal -->
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Copyright © 2020 Dreamguys.</p>					
+</footer>
+<!-- /Footer -->

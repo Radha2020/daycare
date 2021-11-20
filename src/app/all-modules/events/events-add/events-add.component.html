@@ -1,0 +1,76 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Add Event</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="event.html">Events</a></li>
+          <li class="breadcrumb-item active">Add Event</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <div class="row">
+    <div class="col-sm-12">
+    
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="addingEvents()" [formGroup]="addingEventsForm">
+            <div class="row">
+              <div class="col-12">
+                <h5 class="form-title"><span>Event Information</span></h5>
+              </div>
+              <div class="col-12 col-sm-6">  
+                <div class="form-group">
+                  <label>Event ID</label>
+                  <input type="text" class="form-control" [class.invalid]="addingEventsForm.get('eventId').invalid && addingEventsForm.get('eventId').touched"
+                  formControlName="eventId">
+                  <div
+                  *ngIf="addingEventsForm.get('eventId').invalid && addingEventsForm.get('eventId').touched">
+                  <small
+                      *ngIf="addingEventsForm.get('eventId').invalid && addingEventsForm.get('eventId').touched"
+                      class="text-danger"> *Event Id is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Event Name</label>
+                  <input type="text" class="form-control" [class.invalid]="addingEventsForm.get('eventName').invalid && addingEventsForm.get('eventName').touched"
+                  formControlName="eventName">
+                  <div
+                  *ngIf="addingEventsForm.get('eventName').invalid && addingEventsForm.get('eventName').touched">
+                  <small
+                      *ngIf="addingEventsForm.get('eventName').invalid && addingEventsForm.get('eventName').touched"
+                      class="text-danger"> *Event Name is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Event Date</label>
+                  <input type="date" class="form-control" [class.invalid]="addingEventsForm.get('eventDate').invalid && addingEventsForm.get('eventDate').touched"
+                  formControlName="eventDate">
+                  <div
+                  *ngIf="addingEventsForm.get('eventDate').invalid && addingEventsForm.get('eventDate').touched">
+                  <small
+                      *ngIf="addingEventsForm.get('eventDate').invalid && addingEventsForm.get('eventDate').touched"
+                      class="text-danger"> *Event Date is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>					
+  </div>					
+</div>

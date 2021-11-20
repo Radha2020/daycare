@@ -1,0 +1,66 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Expenses</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+          <li class="breadcrumb-item active">Expenses</li>
+        </ul>
+      </div>
+      <div class="col-auto text-right float-right ml-auto">
+        <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+        <a routerLink = "/accounts/add-expenses" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <div class="row">
+    <div class="col-sm-12">
+    
+      <div class="card card-table">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="table table-hover table-center mb-0 datatable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Item Name</th>
+                  <th>Item Quality</th>
+                  <th>Amount</th>
+                  <th>Purchase Source</th>
+                  <th>Purchase Date</th>
+                  <th>Purchase By</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let expenses of lstExpenses;let i = index">
+                  <td>{{expenses.idNo}}</td>
+                  <td>
+                    <h2>
+                      <a>{{expenses.itemName}}</a>
+                    </h2>
+                  </td>
+                  <td>{{expenses.itemQuality}}</td>
+                  <td>${{expenses.amount}}</td>
+                  <td>{{expenses.purchaseSource}}</td>													
+                  <td>{{expenses.purchaseDate}}</td>
+                  <td>{{expenses.purchaseBy}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>							
+    </div>					
+  </div>					
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Copyright © 2020 Dreamguys.</p>					
+</footer>
+<!-- /Footer -->				

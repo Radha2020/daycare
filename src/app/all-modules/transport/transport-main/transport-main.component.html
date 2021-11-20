@@ -1,0 +1,71 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Transport</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+          <li class="breadcrumb-item active">Transport</li>
+        </ul>
+      </div>
+      <div class="col-auto text-right float-right ml-auto">
+        <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+        <a routerLink = "/transport/transport-add" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <div class="row">
+    <div class="col-sm-12">
+    
+      <div class="card card-table">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-center mb-0 datatable">
+              <thead>
+                <tr>
+                  <th>Route Name</th>
+                  <th>Vehicle Number</th>
+                  <th>Driver Name</th>
+                  <th>Driver License</th>
+                  <th>Contact Number</th>
+                  <th>Driver Address</th>
+                  <th class="text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let transport of lstTransport;let i = index">
+                  <td>{{transport.routeName}}</td>
+                  <td>{{transport.vehicleNumber}}</td>
+                  <td>{{transport.driverName}}</td>
+                  <td>{{transport.driverLicense}}</td>
+                  <td>{{transport.contactNumber}}</td>
+                  <td>{{transport.driverAddress}}</td>
+                  <td class="text-right">
+                    <div class="actions">
+                      <a routerLink = "/transport/transport-edit" [queryParams]="{id: transport.id}" class="btn btn-sm bg-success-light mr-2">
+                        <i class="fas fa-pen"></i>
+                      </a>
+                      <a href="#" class="btn btn-sm bg-danger-light">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>							
+    </div>					
+  </div>					
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Copyright © 2020 Dreamguys.</p>					
+</footer>
+<!-- /Footer -->

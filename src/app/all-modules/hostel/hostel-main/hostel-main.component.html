@@ -1,0 +1,79 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Hostel</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+          <li class="breadcrumb-item active">Hostel</li>
+        </ul>
+      </div>
+      <div class="col-auto text-right float-right ml-auto">
+        <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+        <a routerLink = "/hostel/hostel-add" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <div class="row">
+    <div class="col-sm-12">
+    
+      <div class="card card-table">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-center mb-0 datatable">
+              <thead>
+                <tr>
+                  <th>Block</th>
+                  <th>Room No</th>
+                  <th>Room Type</th>
+                  <th>No of Beds</th>
+                  <th>Cost per Bed</th>
+                  <th>Availability</th>
+                  <th class="text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let hostel of lstHostel;let i = index">
+                  <td>{{hostel.block}}</td>
+                  <td>{{hostel.roomNo}}</td>
+                  <td>{{hostel.roomType}}</td>
+                  <td>{{hostel.noOfBeds}}</td>
+                  <td>${{hostel.costPerBed}}</td>
+                  <td *ngIf = "hostel.availability === 'Full'">
+                    <span class="badge badge-danger">{{hostel.availability}}</span>
+                  </td>
+                  <td *ngIf = "hostel.availability === 'Available'">
+                    <span class="badge badge-success">{{hostel.availability}}</span>
+                  </td>
+                  <td *ngIf = "hostel.availability === '2 Available'">
+                    <span class="badge badge-warning">{{hostel.availability}}</span>
+                  </td>
+                  <td class="text-right">
+                    <div class="actions">
+                      <a routerLink = "/hostel/hostel-edit" [queryParams]="{id: hostel.id}" class="btn btn-sm bg-success-light mr-2">
+                        <i class="fas fa-pen"></i>
+                      </a>
+                      <a href="#" class="btn btn-sm bg-danger-light">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>							
+    </div>					
+  </div>					
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Copyright © 2020 Dreamguys.</p>					
+</footer>
+<!-- /Footer -->

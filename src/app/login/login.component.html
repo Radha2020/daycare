@@ -1,0 +1,59 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper login-body">
+  <div class="login-wrapper">
+    <div class="container">
+        <div class="loginbox">
+            <div class="login-left">
+    <img class="img-fluid" src="assets/img/logo-white.png" alt="Logo">
+              </div>
+              <div class="login-right">
+    <div class="login-right-wrap">
+      <h1>Login</h1>
+      <p class="account-subtitle">Access to our dashboard</p>
+      
+      <!-- Form -->
+      
+      <form class="login-form" name="form" 
+      (ngSubmit)="loginForm.form.valid && login()" #loginForm="ngForm" novalidate>                      
+      
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="email" class="form-control" placeholder="Email"
+          [(ngModel)]="LoginDetails.email" 
+            name="email" #email="ngModel"
+         
+          >
+      </div>
+      <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control"  [(ngModel)]="LoginDetails.password" 
+          name="password" #password="ngModel"placeholder="Password">
+      </div>
+  
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </div>
+      </form>
+      <!-- /Form -->
+      
+      <div class="text-center forgotpass"><a routerLink="/forgotpassword">Forgot Password?</a></div>
+      <div class="login-or">
+        <span class="or-line"></span>
+        <span class="span-or">or</span>
+      </div>
+        
+      <!-- Social Login 
+      <div class="social-login">
+        <span>Login with</span>
+        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a><a href="#" class="google"><i class="fab fa-google"></i></a>
+      </div>
+       /Social Login -->
+      
+      <div class="text-center dont-have">Don’t have an account? <a routerLink="/register">Register</a></div>
+    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- /Main Wrapper -->

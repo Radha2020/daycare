@@ -1,0 +1,102 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Add Department</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="departments.html">Department</a></li>
+          <li class="breadcrumb-item active">Add Department</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <div class="row">
+    <div class="col-sm-12">
+    
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="addDepartments()" [formGroup]="addDepartmentsForm">
+            <div class="row">
+              <div class="col-12">
+                <h5 class="form-title"><span>Department Details</span></h5>
+              </div>
+              <div class="col-12 col-sm-6">  
+                <div class="form-group">
+                  <label>Department ID</label>
+                  <input type="text" class="form-control" [class.invalid]="addDepartmentsForm.get('departmentId').invalid && addDepartmentsForm.get('departmentId').touched"
+                  formControlName="departmentId">
+                  <div
+                  *ngIf="addDepartmentsForm.get('departmentId').invalid && addDepartmentsForm.get('departmentId').touched">
+                  <small
+                      *ngIf="addDepartmentsForm.get('departmentId').invalid && addDepartmentsForm.get('departmentId').touched"
+                      class="text-danger"> *Department ID is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Department Name</label>
+                  <input type="text" class="form-control" [class.invalid]="addDepartmentsForm.get('departmentName').invalid && addDepartmentsForm.get('departmentName').touched"
+                  formControlName="departmentName">
+                  <div
+                  *ngIf="addDepartmentsForm.get('departmentName').invalid && addDepartmentsForm.get('departmentName').touched">
+                  <small
+                      *ngIf="addDepartmentsForm.get('departmentName').invalid && addDepartmentsForm.get('departmentName').touched"
+                      class="text-danger"> *Department name is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Head of Department</label>
+                  <input type="text" class="form-control" [class.invalid]="addDepartmentsForm.get('hod').invalid && addDepartmentsForm.get('hod').touched"
+                  formControlName="hod">
+                  <div
+                  *ngIf="addDepartmentsForm.get('hod').invalid && addDepartmentsForm.get('hod').touched">
+                  <small
+                      *ngIf="addDepartmentsForm.get('hod').invalid && addDepartmentsForm.get('hod').touched"
+                      class="text-danger"> *Head of department is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Department Start Date</label>
+                  <input type="date" class="form-control" [class.invalid]="addDepartmentsForm.get('startDate').invalid && addDepartmentsForm.get('startDate').touched"
+                  formControlName="startDate">
+                  <div
+                  *ngIf="addDepartmentsForm.get('startDate').invalid && addDepartmentsForm.get('startDate').touched">
+                  <small
+                      *ngIf="addDepartmentsForm.get('startDate').invalid && addDepartmentsForm.get('startDate').touched"
+                      class="text-danger"> *Department start date is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>No of Students</label>
+                  <input type="text" class="form-control" [class.invalid]="addDepartmentsForm.get('noOfStudents').invalid && addDepartmentsForm.get('noOfStudents').touched"
+                  formControlName="noOfStudents">
+                  <div
+                  *ngIf="addDepartmentsForm.get('noOfStudents').invalid && addDepartmentsForm.get('noOfStudents').touched">
+                  <small
+                      *ngIf="addDepartmentsForm.get('noOfStudents').invalid && addDepartmentsForm.get('noOfStudents').touched"
+                      class="text-danger"> *No of Students is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>					
+  </div>					
+</div>
