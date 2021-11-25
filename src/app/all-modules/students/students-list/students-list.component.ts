@@ -11,9 +11,10 @@ import { LoginService } from "src/app/services/login.service";
 export class StudentsListComponent implements OnInit, OnDestroy {
   @ViewChild(DataTableDirective, { static: true })
   public dtElement: DataTableDirective;
-  public dtOptions: DataTables.Settings = {};
+ // public dtOptions: DataTables.Settings = {};
   public dtTrigger: Subject<any> = new Subject();
   lstStudents: any;
+  dtOptions: any = {};
   public url: any = "studentsList";
   constructor(private srvModuleService: AllModulesService,private loginService:LoginService) {}
 
@@ -21,10 +22,12 @@ export class StudentsListComponent implements OnInit, OnDestroy {
     this.loadStudents();
     // for data table configuration
     this.dtOptions = {
+  
       // ... skipped ...
       pageLength: 10,
       dom: "lrtip",
-    };
+      buttons:['print']
+        };
   }
 
   // Get Students List  Api Call

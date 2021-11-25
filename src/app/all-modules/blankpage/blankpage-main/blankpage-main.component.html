@@ -1,23 +1,65 @@
-<div class="content container-fluid">
-				
-  <!-- Page Header -->
-  <div class="page-header">
-    <div class="row">
-      <div class="col-sm-12">
-        <h3 class="page-title">Blank Page</h3>
-        <ul class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-          <li class="breadcrumb-item active">Blank Page</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!-- /Page Header -->
-  
-  <div class="row">
-    <div class="col-sm-12">
-      Contents here
-    </div>			
-  </div>
-  
-</div>			
+
+        <div class="content container-fluid">
+
+          <!-- Page Header -->
+          <div class="page-header">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="page-title">Students</h3>
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                  <li class="breadcrumb-item active">Students</li>
+                </ul>
+              </div>
+              <div class="col-auto text-right float-right ml-auto">
+              </div>
+            </div>
+          </div>
+          <!-- /Page Header -->
+        
+          <div class="row">
+            <div class="col-sm-12">
+            
+              <div class="card card-table">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-center mb-0 datatable">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Age</th>
+                          <th>Fathers Name</th>
+                          <th>Mobile Number</th>
+                          <th>Address</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let students of lstStudents;let i = index">
+                          <td>{{students.id}}</td>
+                          <td>
+                            <h2 class="table-avatar">
+                             <!-- <a href="student-details.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-0{{i+ 1}}.jpg" alt="User Image"></a>
+                             --> <a href="student-details.html">{{students.name}}</a>
+                            </h2>
+                          </td>
+                          <td>{{students.age}}</td>
+                          <td>{{students.parentName}}</td>
+                          <td>{{students.mobileNumber}}</td>
+                          <td>{{students.address}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>							
+            </div>					
+          </div>					
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+          <p>Copyright © 2020 Dreamguys.</p>					
+        </footer>
+        <!-- /Footer -->				
+        

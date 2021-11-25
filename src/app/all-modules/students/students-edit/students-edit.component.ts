@@ -99,7 +99,7 @@ export class StudentsEditComponent implements OnInit {
    //alert(JSON.stringify(this.sourceImage3));
    
 
-   alert(JSON.stringify(this.lstStudents[0]['dob']));
+  // alert(JSON.stringify(this.lstStudents[0]['dob']));
    
       this.editStudentsForm.patchValue(
 {
@@ -173,7 +173,7 @@ else{
       formData.append('medprblm', this.editStudentsForm.get('medprblm').value);
       if(this.editStudentsForm.get('fileSource').value=="")
       {
-         alert("empty");
+       //  alert("photo-empty");
      
          this.editStudentsForm.patchValue({
            fileSource: ""
@@ -183,16 +183,16 @@ else{
              
              if(this.editStudentsForm.get('fileSource1').value=="")
              {
-                alert("empty");
+               alert("bc-empty");
             
                 this.editStudentsForm.patchValue({
                   fileSource1: ""
                  });
-                 formData.append('file', this.editStudentsForm.get('fileSource').value);
+                 formData.append('file1', this.editStudentsForm.get('fileSource1').value);
                     }
                     if(this.editStudentsForm.get('fileSource2').value=="")
       {
-         alert("empty");
+        // alert("aadhar-empty");
      
          this.editStudentsForm.patchValue({
            fileSource2: ""
@@ -328,7 +328,10 @@ onBirthChange(event){
       this.editStudentsForm.patchValue({
         fileSource1: file1
       });
-   
+     // this.editStudentsForm.get('file1').updateValueAndValidity();
+
+
+      
     }else{
       event.target.value=null;
    

@@ -8,8 +8,7 @@
             <span>Main Menu</span>
           </li>
           <li
-            [ngClass]="[activeRoute === 'dashboard' ? 'active' : 'submenu']"
-          >
+            [ngClass]="[activeRoute === 'dashboard' ? 'active' : 'submenu']">
             <a
               [ngClass]="[activeRoute === 'dashboard' ? 'active' : '']"
               (click)="setActive()"
@@ -51,6 +50,20 @@
               </li>-->
             </ul>
           </li>
+<li
+  [ngClass]="[activeRoute === 'blankpage' ? 'active' : 'submenu']">
+  <a
+    [ngClass]="[activeRoute === 'blankpage' ? 'active' : '']"
+    (click)="setActive()"
+    routerLink="/blankpage/blankpage-main"
+    ><i class="fas fa-user-graduate"></i> <span>  Reports</span>
+    
+  </a>
+
+
+
+</li>
+
           <!-- <li [ngClass]="[activeRoute === 'dashboard' ? 'active' : '']">
             <a routerLink="/dashboard/dashboard-main" (click)="setActive()"
               ><i class="fas fa-th-large"></i> <span>Dashboard</span></a
