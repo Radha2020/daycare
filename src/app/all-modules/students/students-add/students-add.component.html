@@ -69,7 +69,14 @@
 
                 </div>
               </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Siblings Name</label>
+                  <input type="text" class="form-control" formControlName="siblings">
 
+
+                </div>
+              </div>
               <!--<div class="col-12 col-sm-6">  
                 <div class="form-group">
                   <label>Student Id</label>
@@ -112,6 +119,22 @@
                     <small
                         *ngIf="addStudentsForm.get('dob').invalid && addStudentsForm.get('dob').touched"
                         class="text-danger"> *DOB is required</small>
+                </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Date of Join</label>
+                  <div>
+                    <input type="date" class="form-control" [class.invalid]="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched"
+                    formControlName="doj"  max="{{currentDate|date:'yyyy-MM-dd'}}">
+                    <div
+                    *ngIf="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched">
+                    <small
+                        *ngIf="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched"
+                        class="text-danger"> *DOJ is required</small>
                 </div>
                   </div>
                 </div>

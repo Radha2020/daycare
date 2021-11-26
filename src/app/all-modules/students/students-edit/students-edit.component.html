@@ -40,9 +40,26 @@
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label>Last Name</label>
-                  <input type="text" class="form-control" formControlName="LastName" value=LastName>
+                  <input type="text" class="form-control"  [class.invalid]="editStudentsForm.get('LastName').invalid && editStudentsForm.get('LastName').touched" 
+                  formControlName="LastName" value=LastName>
+                  <div
+                  *ngIf="editStudentsForm.get('LastName').invalid && editStudentsForm.get('LastName').touched">
+                  <small
+                      *ngIf="editStudentsForm.get('LastName').invalid && editStudentsForm.get('LastName').touched"
+                      class="text-danger"> *LastName is required</small>
+              </div>
+               
+                
                 </div>
               </div>
+
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Siblings</label>
+                  <input type="text" class="form-control" formControlName="siblings" value=siblings>
+                </div>
+              </div>
+
                <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label>Gender</label>
@@ -59,7 +76,7 @@
                   <label>Date of Birth</label>
                   <div>
                     <input type="date" class="form-control" [class.invalid]="editStudentsForm.get('dob').invalid && editStudentsForm.get('dob').touched"
-                    formControlName="dob" value ="{{ this.lstStudents[0]['dob'] |date:'dd-mm-yyyy' }}" >
+                    formControlName="dob" value ="{{ this.lstStudents[0]['dob'] |date:'dd-mm-yyyy' }}" max="{{currentDate|date:'yyyy-MM-dd'}}" >
                     <div
                     *ngIf="editStudentsForm.get('dob').invalid && editStudentsForm.get('dob').touched">
                     <small
@@ -69,7 +86,24 @@
                   </div>
                 </div>
               </div>
-             <!-- <div class="col-12 col-sm-6">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Date of Join</label>
+                  <div>
+                    <input type="date" class="form-control" [class.invalid]="editStudentsForm.get('doj').invalid && editStudentsForm.get('doj').touched"
+                    formControlName="doj" value ="{{ this.lstStudents[0]['doj'] |date:'dd-mm-yyyy' }}" max="{{currentDate|date:'yyyy-MM-dd'}}">
+                    <div
+                    *ngIf="editStudentsForm.get('doj').invalid && editStudentsForm.get('doj').touched">
+                    <small
+                        *ngIf="editStudentsForm.get('doj').invalid && editStudentsForm.get('doj').touched"
+                        class="text-danger"> *DOJ is required</small>
+                </div>
+                  </div>
+                </div>
+              </div>
+            
+
+              <!-- <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label>Class</label>
                   <input type="text" class="form-control" [class.invalid]="editStudentsForm.get('class').invalid && editStudentsForm.get('class').touched"

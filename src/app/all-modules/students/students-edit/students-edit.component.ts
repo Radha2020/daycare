@@ -25,6 +25,8 @@ export class StudentsEditComponent implements OnInit {
   lstStudents:any;
   public obj;
   public setDate;
+  
+  public currentDate:Date;
   sourceImage: string;
   sourceImage1: string;
   sourceImage2: string;
@@ -48,6 +50,12 @@ export class StudentsEditComponent implements OnInit {
 
   ngOnInit() {
    
+    this.currentDate=new Date();
+    const namepattern = "^[a-zA-Z ]{2,20}$";
+    const filepattern = "[^\\s]+(\\.(jpg|png|gif|bmp))$";
+    const filepattern1= "[^\\s ]+(\\.(pdf))$";
+    const emailpattern= "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+    const mobilepattern="^[0-9]{10}$";
     //getting edit id of selected student list
     this.editId = parseInt(this.route.snapshot.queryParams["id"]);
     this.loadStudents();
@@ -55,8 +63,10 @@ export class StudentsEditComponent implements OnInit {
     //editstudents form validation
     this.editStudentsForm = this.formBuilder.group({
       FirstName: ["", [Validators.required]],
-      LastName: [""],
-      dob: [""],
+      LastName: ["", [Validators.required]],
+      siblings:[""],
+      doj: ["", [Validators.required]],
+      dob: ["", [Validators.required]],
       gender: ["", [Validators.required]],
       identification:[""],
       bloodgroup:[""],
@@ -99,14 +109,18 @@ export class StudentsEditComponent implements OnInit {
    //alert(JSON.stringify(this.sourceImage3));
    
 
-  // alert(JSON.stringify(this.lstStudents[0]['dob']));
+  // alert(JSON.stringify(this.lstStudents[0]['doj']));
    
       this.editStudentsForm.patchValue(
 {
        FirstName:this.lstStudents[0]['FirstName'],
        LastName:this.lstStudents[0]['LastName'],
+       siblings:this.lstStudents[0]['siblings'],
+      
        gender:this.lstStudents[0]['gender'],
        dob:this.lstStudents[0]['dob'],
+       doj:this.lstStudents[0]['doj'],
+     
        identification:this.lstStudents[0]['identification'],
        bloodgroup:this.lstStudents[0]['bloodgroup'],
        type:this.lstStudents[0]['type'],
@@ -164,8 +178,13 @@ else{
       
       formData.append('FirstName', this.editStudentsForm.get('FirstName').value);
       formData.append('LastName', this.editStudentsForm.get('LastName').value);
+      formData.append('siblings', this.editStudentsForm.get('siblings').value);
+      
       formData.append('identification', this.editStudentsForm.get('identification').value);
       formData.append('gender',this.editStudentsForm.get('gender').value);
+      
+      formData.append('doj', this.editStudentsForm.get('doj').value);
+      
       formData.append('dob', this.editStudentsForm.get('dob').value);
       formData.append('age',age);
       formData.append('bloodgroup',this.editStudentsForm.get('bloodgroup').value);
@@ -173,41 +192,55 @@ else{
       formData.append('medprblm', this.editStudentsForm.get('medprblm').value);
       if(this.editStudentsForm.get('fileSource').value=="")
       {
-       //  alert("photo-empty");
+        // alert("photo-empty");
      
          this.editStudentsForm.patchValue({
            fileSource: ""
           });
           formData.append('file', this.editStudentsForm.get('fileSource').value);
-             }
-             
-             if(this.editStudentsForm.get('fileSource1').value=="")
+         }
+      else{
+             // alert("photo-changed");
+
+              formData.append('file', this.editStudentsForm.get('fileSource').value);
+              
+          }
+      if(this.editStudentsForm.get('fileSource1').value=="")
              {
-               alert("bc-empty");
+             //  alert("bc-empty");
             
                 this.editStudentsForm.patchValue({
                   fileSource1: ""
                  });
                  formData.append('file1', this.editStudentsForm.get('fileSource1').value);
-                    }
-                    if(this.editStudentsForm.get('fileSource2').value=="")
+         }
+       else{
+                    //  alert("bc-changed");
+                      formData.append('file1', this.editStudentsForm.get('fileSource1').value);
+             
+           }
+      if(this.editStudentsForm.get('fileSource2').value=="")
       {
-        // alert("aadhar-empty");
+    //    alert("aadhar-empty");
      
          this.editStudentsForm.patchValue({
            fileSource2: ""
           });
           formData.append('file2', this.editStudentsForm.get('fileSource2').value);
-             }
+        }
+      else{
+           //   alert("aadhar-changed");
+              formData.append('file2', this.editStudentsForm.get('fileSource2').value);
+              
 
-  //    formData.append('file1', this.editStudentsForm.get('fileSource1').value);
-  //   formData.append('file2', this.editStudentsForm.get('fileSource2').value);
+
+          }
    
       formData.append('fathersName', this.editStudentsForm.get('fathersName').value);
       formData.append('fathersMobile', this.editStudentsForm.get('fathersMobile').value);
       formData.append('fathersEmail', this.editStudentsForm.get('fathersEmail').value);
-     formData.append('mothersMobile', this.editStudentsForm.get('mothersMobile').value);
-     formData.append('address', this.editStudentsForm.get('address').value);
+      formData.append('mothersMobile', this.editStudentsForm.get('mothersMobile').value);
+      formData.append('address', this.editStudentsForm.get('address').value);
       alert(formData);
    
       if(this.editStudentsForm.valid){
@@ -222,9 +255,7 @@ else{
       
         this.toastr.error("something went wrong",'Error')  
       
-      
-      
-      }
+           }
       
       
       

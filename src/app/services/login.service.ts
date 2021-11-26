@@ -60,6 +60,12 @@ studentupdate(formData){
      return res}));
 
 }
-}
+getstudentsperdoj(datejoin){
 
+return this.Http.post(this.conf.url+"/hosp/Api/reportsperDoj",JSON.stringify(datejoin)).pipe(map(res=>
+  {
+   return res}));
+
+}
+}
 

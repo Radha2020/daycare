@@ -1,5 +1,5 @@
 		<!-- Main Wrapper -->
-    <div class="main-wrapper login-body">
+    <!--<div class="main-wrapper login-body">
       <div class="login-wrapper">
         <div class="container">
             <div class="loginbox">
@@ -8,11 +8,11 @@
                   </div>
                   <div class="login-right">
         <div class="login-right-wrap">
-          <h1>Register</h1>
-          <p class="account-subtitle">Access to our dashboard</p>
-          
+          <h1>Registration</h1>
+          <p class="account-subtitle">Student Details</p>
+        -->   
           <!-- Form -->
-          <form class="login-form" name="form" 
+         <!-- <form class="login-form" name="form" 
           (ngSubmit)="loginForm.form.valid && register()" #loginForm="ngForm" novalidate>                            
           
             <div class="form-group">
@@ -49,23 +49,553 @@
           </form>
           <!-- /Form -->
           
-          <div class="login-or">
+         <!-- <div class="login-or">
             <span class="or-line"></span>
             <span class="span-or">or</span>
           </div>
-          
+        -->
           <!-- Social Login -->
-          <div class="social-login">
+          <!--<div class="social-login">
             <span>Register with</span>
             <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a><a href="#" class="google"><i class="fab fa-google"></i></a>
-          </div>
+          </div>-->
           <!-- /Social Login -->
           
-          <div class="text-center dont-have">Already have an account? <a routerLink="/login">Login</a></div>
+         <!-- <div class="text-center dont-have">Already have an account? <a routerLink="/login">Login</a></div>
         </div>
-                  </div>
+      -->             <!--     </div>
               </div>
           </div>
       </div>
-  </div>
+  </div>-->
 <!-- /Main Wrapper -->
+
+<div class="content container-fluid">
+
+
+<div class="row">
+  <div class="col-sm-12">
+  
+    <div class="card">
+      <div class="card-body">
+        <form (ngSubmit)="addStudents()" [formGroup]="addStudentsForm">
+          <div class="row">
+            <div class="col-12">
+              <h5 class="form-title"><span>Student Information</span></h5>
+            </div>
+            <div class="col-12 col-sm-6">  
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" 
+                [class.invalid]="addStudentsForm.get('FirstName').invalid && addStudentsForm.get('FirstName').touched"
+                formControlName="FirstName">
+
+                <div
+                  *ngIf="addStudentsForm.get('FirstName').invalid && addStudentsForm.get('FirstName').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('FirstName').errors.required"
+                      class="text-danger"> *FirstName is required</small>
+<small
+                       *ngIf="addStudentsForm.get('FirstName').errors.pattern"
+                      class="text-danger"> *Only Alphatets and spaces allowed</small>
+                  
+
+</div>
+
+
+
+
+
+</div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" formControlName="LastName"
+                [class.invalid]="addStudentsForm.get('LastName').invalid && addStudentsForm.get('LastName').touched">
+
+                <div
+                *ngIf="addStudentsForm.get('LastName').invalid && addStudentsForm.get('LastName').touched">
+                <small
+                    *ngIf="addStudentsForm.get('LastName').errors.required"
+                    class="text-danger"> *LastName is required</small>
+<small
+                     *ngIf="addStudentsForm.get('LastName').errors.pattern"
+                    class="text-danger"> *Only Alphatets and spaces allowed</small>
+                
+
+</div>
+
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Siblings Name</label>
+                <input type="text" class="form-control" formControlName="siblings">
+
+
+              </div>
+            </div>
+            <!--<div class="col-12 col-sm-6">  
+              <div class="form-group">
+                <label>Student Id</label>
+                <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('studentId').invalid && addStudentsForm.get('studentId').touched"
+                formControlName="studentId">
+                <div
+                *ngIf="addStudentsForm.get('studentId').invalid && addStudentsForm.get('studentId').touched">
+                <small
+                    *ngIf="addStudentsForm.get('studentId').invalid && addStudentsForm.get('studentId').touched"
+                    class="text-danger"> *StudentId is required</small>
+            </div>
+              </div>
+            </div>-->
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Gender</label>
+                <select class="form-control" formControlName="gender" (change)="changeGender($event)">
+                  <option value="" selected disabled hidden>Choose here</option>
+                   <option>Female</option>
+                  <option>Male</option>
+                  <option>Others</option>
+                  </select>
+                  <div
+                  *ngIf="addStudentsForm.get('gender').invalid && addStudentsForm.get('gender').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('gender').invalid && addStudentsForm.get('gender').touched"
+                      class="text-danger"> *Gender is required</small>
+              </div>
+                
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Date of Birth</label>
+                <div>
+                  <input type="date" class="form-control" [class.invalid]="addStudentsForm.get('dob').invalid && addStudentsForm.get('dob').touched"
+                  formControlName="dob"  max="{{currentDate|date:'yyyy-MM-dd'}}">
+                  <div
+                  *ngIf="addStudentsForm.get('dob').invalid && addStudentsForm.get('dob').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('dob').invalid && addStudentsForm.get('dob').touched"
+                      class="text-danger"> *DOB is required</small>
+              </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Date of Join</label>
+                <div>
+                  <input type="date" class="form-control" [class.invalid]="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched"
+                  formControlName="doj"  max="{{currentDate|date:'yyyy-MM-dd'}}">
+                  <div
+                  *ngIf="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched"
+                      class="text-danger"> *DOJ is required</small>
+              </div>
+                </div>
+              </div>
+            </div>
+            <!--<div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Class</label>
+                <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('class').invalid && addStudentsForm.get('class').touched"
+                formControlName="class">
+                <div
+                *ngIf="addStudentsForm.get('class').invalid && addStudentsForm.get('class').touched">
+                <small
+                    *ngIf="addStudentsForm.get('class').invalid && addStudentsForm.get('class').touched"
+                    class="text-danger"> *Class is required</small>
+            </div>
+              </div>
+            </div>-->
+            <!--<div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Religion</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>-->
+            <!--<div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Date of Join</label>
+                <div>
+                  <input type="date" class="form-control" [class.invalid]="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched"
+                  formControlName="doj">
+                  <div
+                  *ngIf="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('doj').invalid && addStudentsForm.get('doj').touched"
+                      class="text-danger"> *DOj is required</small>
+              </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Contact Number</label>
+                <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('contactNumber').invalid && addStudentsForm.get('contactNumber').touched"
+                formControlName="contactNumber">
+                <div
+                  *ngIf="addStudentsForm.get('contactNumber').invalid && addStudentsForm.get('contactNumber').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('contactNumber').invalid && addStudentsForm.get('contactNumber').touched"
+                      class="text-danger"> *Contactnumber is required</small>
+              </div>
+              </div>
+            </div>-->
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Identification</label>
+                <input type="text" class="form-control" name="identification"
+                  id=identification formControlName="identification">
+                  <div
+                  *ngIf="addStudentsForm.get('identification').invalid && addStudentsForm.get('identification').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('identification').errors.required"
+                      class="text-danger"> *Identification is required</small>
+<small
+                       *ngIf="addStudentsForm.get('identification').errors.pattern"
+                      class="text-danger"> *Only Alphatets and spaces allowed</small>
+                  
+
+</div>
+              </div>
+              
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Blood Group</label>
+                <select class="form-control" formControlName="bloodgroup" (change)="changeBlood($event)">
+                  <option value="" selected disabled hidden>Choose here</option> 
+                  <option>O +ve</option>
+                  <option>A +ve</option>
+                  <option>B +ve</option>
+                  <option>O -ve</option>
+                  <option>A -ve</option>
+                  <option>B -ve</option>
+                  <option>AB +ve</option>
+                  <option>AB -ve</option>
+                
+                  </select>
+                 <div
+                  *ngIf="addStudentsForm.get('bloodgroup').invalid && addStudentsForm.get('bloodgroup').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('bloodgroup').invalid && addStudentsForm.get('bloodgroup').touched"
+                      class="text-danger"> *Bloodgroup is required</small>
+              </div>
+            
+              
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Health concerns</label>
+                <textarea class="form-control" formControlName="medprblm"> </textarea>
+              </div>
+            </div>  
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Looking For</label>
+                <select class="form-control" formControlName="type" (change)="changeType($event)">
+                  <option value="" selected disabled hidden>Choose here</option>
+                  <option>Full Time</option>
+                  <option>Part Time</option>
+                  <option>Hourly Basics</option>
+                  </select>
+                  <div
+                  *ngIf="addStudentsForm.get('type').invalid && addStudentsForm.get('type').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('type').invalid && addStudentsForm.get('type').touched"
+                      class="text-danger"> *required</small>
+              </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Student Photo</label>
+                <input #fileinput type="file" class="form-control" name="file" accept="image/png, image/jpg, image/jpeg" 
+                 id=file (change)="onstudentsImageChange($event)" formControlName="file">
+                <div
+                *ngIf="addStudentsForm.get('file').invalid && addStudentsForm.get('file').touched">
+                <small
+                    *ngIf="addStudentsForm.get('file').invalid && addStudentsForm.get('file').touched" 
+                    class="text-danger"> *Photo is required</small>
+
+                    <small
+                    *ngIf="addStudentsForm.get('file').errors.pattern"
+                   class="text-danger"> *Only Image allowed</small>
+                   
+            </div>
+            <small id="passwordHelpInline" class="text-muted">
+              max file size 30 kb
+            </small>
+              </div>
+              
+            </div>
+           <!-- Image Preview -->
+
+                   
+        <!--   <div class="col-12 col-sm-6">
+            <div class="form-group">
+              <label>Preview</label><br>
+                <img [src]="url" height="100">&nbsp;&nbsp;<button type="button" class="btn btn-info btn-sm" (click)="deleteImage(url)">Reset</button>          
+</div>
+</div> -->
+          <div class="col-12">
+              <h5 class="form-title"><span>Parent/Guardian Information</span></h5>
+            </div>
+           <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control"
+                 [class.invalid]="addStudentsForm.get('fathersName').invalid && addStudentsForm.get('fathersName').touched"
+                formControlName="fathersName">
+              
+                <div
+                *ngIf="addStudentsForm.get('fathersName').invalid && addStudentsForm.get('fathersName').touched">
+                <small
+                    *ngIf="addStudentsForm.get('fathersName').errors.required"
+                    class="text-danger"> *Name is required</small>
+<small
+                     *ngIf="addStudentsForm.get('fathersName').errors.pattern"
+                    class="text-danger"> *Only Alphatets and spaces allowed</small>
+                
+
+</div>
+              </div>
+            </div>
+           
+            <!--<div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Father's Occupation</label>
+                <input type="text" class="form-control" formControlName="fathersOccupation">
+                <div
+                *ngIf="addStudentsForm.get('fathersOccupation').invalid && addStudentsForm.get('fathersOccupation').touched">
+                <small
+                    *ngIf="addStudentsForm.get('fathersOccupation').invalid && addStudentsForm.get('fathersOccupation').touched"
+                    class="text-danger"> *fathersOccuption is required</small>
+            </div>
+              </div>
+            </div>-->
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Primary contact number</label>
+                <input type="text" class="form-control"  [class.invalid]="addStudentsForm.get('fathersName').invalid && addStudentsForm.get('fathersName').touched"
+                formControlName="fathersMobile">
+                <div
+                *ngIf="addStudentsForm.get('fathersMobile').invalid && addStudentsForm.get('fathersMobile').touched">
+                <small
+                    *ngIf="addStudentsForm.get('fathersMobile').errors.required"
+                    class="text-danger"> *Number is required</small>
+<small
+                     *ngIf="addStudentsForm.get('fathersMobile').errors.pattern"
+                    class="text-danger"> *Only 10 digit Numbers allowed</small>
+                
+
+</div>
+              
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Alternate Contact Number</label>
+                <input type="text" class="form-control"
+                [class.invalid]="addStudentsForm.get('mothersMobile').invalid && addStudentsForm.get('mothersMobile').touched"
+                formControlName="mothersMobile">
+                <div
+                *ngIf="addStudentsForm.get('mothersMobile').invalid && addStudentsForm.get('mothersMobile').touched">
+                <small
+                    *ngIf="addStudentsForm.get('mothersMobile').errors.required"
+                    class="text-danger"> *Contact Number is required</small>
+                    <small
+                    *ngIf="addStudentsForm.get('mothersMobile').errors.pattern"
+                   class="text-danger"> *Only 10 digit Numbers allowed</small>
+              
+
+                  </div>
+              
+              
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control"formControlName="fathersEmail">
+                <div
+                *ngIf="addStudentsForm.get('fathersEmail').invalid && addStudentsForm.get('fathersEmail').touched">
+                <small
+                    *ngIf="addStudentsForm.get('fathersEmail').errors.required"
+                    class="text-danger"> *Email is required</small>
+                    <small
+                    *ngIf="addStudentsForm.get('fathersEmail').errors.pattern"
+                    class="text-danger"> *Email is Invalid</small>
+      
+      
+      
+      
+                  </div>
+              
+
+              </div>
+            </div>
+            <!--<div class="col-12 col-sm-6">
+              <div class="form-group" >
+                <label>Mother's Name</label>
+                <input type="text" class="form-control" formControlName="mothersName">
+                <div
+                *ngIf="addStudentsForm.get('mothersName').invalid && addStudentsForm.get('mothersName').touched">
+                <small
+                    *ngIf="addStudentsForm.get('mothersName').invalid && addStudentsForm.get('mothersName').touched"
+                    class="text-danger"> *mothersName is required</small>
+            </div>
+              
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Mother's Occupation</label>
+                <input type="text" class="form-control"formControlName="mothersOccupation">
+              </div>
+            </div>-->
+          
+
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Birth Certificate</label>
+                <input #fileinput3 type="file" class="form-control" name="file1" #file
+                 id=file1 (change)="onBirthChange($event)" accept = "application/pdf" formControlName="file1">
+                <div
+                *ngIf="addStudentsForm.get('file1').invalid && addStudentsForm.get('file1').touched">
+                <small
+                    *ngIf="addStudentsForm.get('file1').invalid && addStudentsForm.get('file1').touched"
+                    class="text-danger"> *Doc is required</small>
+                    <small
+                    *ngIf="addStudentsForm.get('file1').errors.pattern"
+                   class="text-danger"> *Only PDF allowed</small>
+                   
+            </div>
+              </div>
+              
+            </div>
+            <!--<div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Mother's Email</label>
+                <input type="email" class="form-control"formControlName="mothersEmail">
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Fathers Photo</label>
+                <input  #fileinput1 type="file" class="form-control" name="file1" required #file accept="image/png, image/jpg, image/jpeg" 
+                 id=file1 (change)="onfathersImageChange($event)" formControlName="file1">
+                <div
+                *ngIf="addStudentsForm.get('file1').invalid && addStudentsForm.get('file1').touched">
+                <small
+                    *ngIf="addStudentsForm.get('file1').invalid && addStudentsForm.get('file1').touched"
+                    class="text-danger"> *Photo is required</small>
+            </div>
+            <small id="passwordHelpInline" class="text-muted">
+              Must be jpg or png file.
+            </small>
+              </div>
+              
+            </div>-->
+
+<!-- Image Preview -->
+           
+<!--<div class="col-12 col-sm-6">
+  
+  <div class="form-group">
+    <label>Preview</label><br>
+  <img [src]="url1" height="100"><button type="button" class="btn btn-info btn-sm" (click)="deleteImage1(url1)">Reset</button>          
+</div>
+</div>-->
+
+           <!-- <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Mothers Photo</label>
+                <input #fileinput2 type="file" class="form-control" name="file2" required #file accept="image/png, image/jpg, image/jpeg" 
+                 id=file2 (change)="onmothersImageChange($event)" formControlName="file2">
+                <div
+                *ngIf="addStudentsForm.get('file2').invalid && addStudentsForm.get('file2').touched">
+                <small
+                    *ngIf="addStudentsForm.get('file2').invalid && addStudentsForm.get('file2').touched"
+                    class="text-danger"> *Photo is required</small>
+            </div>
+            <small id="passwordHelpInline" class="text-muted">
+              Must be jpg or png file.
+            </small>
+              </div>
+              
+            </div>
+          -->      <!-- Image Preview -->
+           
+   <!--          <div class="col-12 col-sm-6">
+              <img [src]="url2" height="100"><button type="button" class="btn btn-info btn-sm" (click)="deleteImage2(url)">Reset</button>          
+ </div>
+-->
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Identity</label>
+                <input #fileinput3 type="file" class="form-control" name="file2" #file
+                 id=file2 (change)="onparentDocChange($event)" accept = "application/pdf" formControlName="file2">
+                 <div
+                 *ngIf="addStudentsForm.get('file2').invalid && addStudentsForm.get('file2').touched">
+                 <small
+                     *ngIf="addStudentsForm.get('file2').touched"
+                     class="text-danger"> *Doc is required</small>
+                     <small
+                     *ngIf="addStudentsForm.get('file2').errors.pattern"
+                    class="text-danger"> *Only PDF allowed</small>
+                    
+             </div>
+            <small id="passwordHelpInline" class="text-muted">
+              Aadhar Card,
+            </small>
+              </div>
+              
+            </div>
+        
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" [class.invalid]="addStudentsForm.get('address').invalid && addStudentsForm.get('address').touched"
+                formControlName="address"></textarea>
+                <div
+                *ngIf="addStudentsForm.get('address').invalid && addStudentsForm.get('address').touched">
+                <small
+                    *ngIf="addStudentsForm.get('address').invalid && addStudentsForm.get('address').touched"
+                    class="text-danger"> *Address is required</small>
+            </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <input type="checkbox"
+                 [class.invalid]="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched"
+                formControlName="terms">&nbsp;Rules  
+                <div
+                *ngIf="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched">
+                <small
+                    *ngIf="addStudentsForm.get('terms').invalid && addStudentsForm.get('terms').touched"
+                    class="text-danger"> *Accept the terms</small>
+            </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary" 
+                     >Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>							
+  </div>					
+</div>
+</div>

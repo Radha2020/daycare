@@ -55,6 +55,7 @@ export class StudentsAddComponent implements OnInit {
      this.addStudentsForm = this.formBuilder.group({
       FirstName: ["", [Validators.required,Validators.pattern(namepattern)]],
       LastName: ["",[Validators.required,Validators.pattern(namepattern)]],
+      siblings:[""],
       identification: ["", [Validators.required]],
       gender:["", [Validators.required]],
       dob: ["", [Validators.required]],
@@ -64,7 +65,7 @@ export class StudentsAddComponent implements OnInit {
       medprblm:[""],
 
 
-      //  doj:["", [Validators.required]],
+        doj:["", [Validators.required]],
       //  class: ["", [Validators.required]],
       file : ["",[Validators.required,Validators.pattern(filepattern)]],
       fileSource: [""],
@@ -100,6 +101,7 @@ export class StudentsAddComponent implements OnInit {
       this.addStudentsForm.value.dob,
       "d MMM y"
     );
+
     var todaysDate=moment(new Date());
     var dob=moment(new Date(this.addStudentsForm.value.dob));
     var duration=moment.duration(todaysDate.diff(dob));
@@ -113,14 +115,15 @@ export class StudentsAddComponent implements OnInit {
     const formData = new FormData();
     formData.append('FirstName', this.addStudentsForm.get('FirstName').value);
     formData.append('LastName', this.addStudentsForm.get('LastName').value);
+    formData.append('siblings', this.addStudentsForm.get('siblings').value);
  
   formData.append('identification', this.addStudentsForm.get('identification').value);
   formData.append('gender',this.addStudentsForm.get('gender').value);
-    
-   formData.append('dob', this.addStudentsForm.get('dob').value);
-   formData.append('age',age);
-   formData.append('bloodgroup',this.addStudentsForm.get('bloodgroup').value);
-   formData.append('type',this.addStudentsForm.get('type').value);
+  formData.append('doj', this.addStudentsForm.get('dob').value);
+  formData.append('dob', this.addStudentsForm.get('dob').value);
+  formData.append('age',age);
+  formData.append('bloodgroup',this.addStudentsForm.get('bloodgroup').value);
+  formData.append('type',this.addStudentsForm.get('type').value);
     
     //  formData.append('doj', DateOfJoin);
    

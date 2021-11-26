@@ -15,8 +15,43 @@
               </div>
             </div>
           </div>
-          <!-- /Page Header -->
-        
+          <div class="row">
+            <div class="col-sm-12">
+            
+              <div class="card">
+                <div class="card-body">
+                  <form (ngSubmit)="reports()" [formGroup]="ReportsForm">
+                    <div class="row">
+                                       
+                      <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                          <label>Date of Join</label>
+                          <div>
+                            <input type="date" class="form-control" [class.invalid]="ReportsForm.get('doj').invalid && ReportsForm.get('doj').touched"
+                            formControlName="doj"  max="{{currentDate|date:'yyyy-MM-dd'}}">
+                            <div
+                            *ngIf="ReportsForm.get('doj').invalid && ReportsForm.get('doj').touched">
+                            <small
+                                *ngIf="ReportsForm.get('doj').invalid && ReportsForm.get('doj').touched"
+                                class="text-danger"> *DOJ is required</small>
+                        </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-primary" 
+                               >Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>							
+            </div>					
+          </div>	
+
+
+
+
           <div class="row">
             <div class="col-sm-12">
             

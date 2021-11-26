@@ -55,11 +55,46 @@
   <a
     [ngClass]="[activeRoute === 'blankpage' ? 'active' : '']"
     (click)="setActive()"
-    routerLink="/blankpage/blankpage-main"
+   
     ><i class="fas fa-user-graduate"></i> <span>  Reports</span>
-    
+    <span class="menu-arrow"></span>
   </a>
-
+  <ul>
+    <li>
+      <a
+        [ngClass]="[active2Route === 'blankpage-main' ? 'active' : '']"
+        (click)="setActive()"
+        routerLink="/blankpage/blankpage-main"
+        >Active Students</a
+      >
+    </li>
+    <!--<li>
+      <a
+        [ngClass]="[
+          active2Route === 'students-details' ? 'active' : ''
+        ]"
+        (click)="setActive()"
+        routerLink="/students/students-details"
+        >Student View</a
+      >
+    </li>-->
+    <li>
+      <a
+        [ngClass]="[active2Route === 'blankpage-main1' ? 'active' : '']"
+        (click)="setActive()"
+        routerLink="/blankpage/blankpage-main1"
+        >Join Date</a
+      >
+    </li>
+    <!--<li>
+      <a
+        [ngClass]="[active2Route === 'students-edit' ? 'active' : '']"
+        (click)="setActive()"
+        routerLink="/students/students-edit"
+        >Student Edit</a
+      >
+    </li>-->
+  </ul>
 
 
 </li>
@@ -74,10 +109,8 @@
           <li [ngClass]="[activeRoute === 'students' ? 'active' : 'submenu']">
             <a
               [ngClass]="[activeRoute === 'students' ? 'active' : '']"
-              (click)="setActive()"
-              ><i class="fas fa-user-graduate"></i> <span> Students</span>
-              <span class="menu-arrow"></span
-            ></a>
+              (click)="setActive()" ><i class="fas fa-user-graduate"></i> <span> Students</span>
+              <span class="menu-arrow"></span></a>
             <ul>
               <li>
                 <a
