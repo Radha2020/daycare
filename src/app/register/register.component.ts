@@ -135,9 +135,10 @@ if(this.addStudentsForm.valid){
     if(res)
 {
   this.toastr.success("Registered Successfully",'Success')  
- // window.open('http://daycare.impelcreations.co.in', '_self', '');
- // window.close();
-  this.router.navigate(['./students/students-list']);
+ alert("Registration Completed");
+  window.open('http://daycare.impelcreations.co.in', '_self', '');
+  window.close();
+ // this.router.navigate(['./students/students-list']);
       
 }
 else{

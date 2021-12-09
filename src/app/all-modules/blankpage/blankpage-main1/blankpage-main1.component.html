@@ -1,100 +1,133 @@
+<div class="content container-fluid">
 
-        <div class="content container-fluid">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Reports</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item">Dashboard</li>
+          <li class="breadcrumb-item active">Students</li>
+        </ul>
+      </div>
+      <div class="col-auto text-right float-right ml-auto">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
 
-          <!-- Page Header -->
-          <div class="page-header">
-            <div class="row align-items-center">
-              <div class="col">
-                <h3 class="page-title">Reports</h3>
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item">Dashboard</li>
-                  <li class="breadcrumb-item active">Students</li>
-                </ul>
-              </div>
-              <div class="col-auto text-right float-right ml-auto">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-            
-              <div class="card">
-                <div class="card-body">
-                  <form (ngSubmit)="reports()" [formGroup]="ReportsForm">
-                    <div class="row">
-                                       
-                      <div class="col-12 col-sm-6">
-                        <div class="form-group">
-                          <label>Date of Join</label>
-                          <div>
-                            <input type="date" class="form-control" [class.invalid]="ReportsForm.get('doj').invalid && ReportsForm.get('doj').touched"
-                            formControlName="doj"  max="{{currentDate|date:'yyyy-MM-dd'}}">
-                            <div
-                            *ngIf="ReportsForm.get('doj').invalid && ReportsForm.get('doj').touched">
-                            <small
-                                *ngIf="ReportsForm.get('doj').invalid && ReportsForm.get('doj').touched"
-                                class="text-danger"> *DOJ is required</small>
-                        </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <button type="submit" class="btn btn-primary" 
-                               >Submit</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>							
-            </div>					
-          </div>	
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="reports()" [formGroup]="ReportsForm">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <select class="form-control" formControlName="type" (change)="changeType($event)">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option>Last one month</option>
+                    <option>Last 3 months</option>
+                    <option>Last Year</option>
+                    <option>Custom Dates</option>
 
-
-
-
-          <div class="row">
-            <div class="col-sm-12">
-            
-              <div class="card card-table">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-center mb-0 datatable">
-                      <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Name</th>
-                          <th>Age</th>
-                          <th>Fathers Name</th>
-                          <th>Mobile Number</th>
-                          <th>Address</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let students of lstStudents;let i = index">
-                          <td>{{students.id}}</td>
-                          <td>
-                            <h2 class="table-avatar">
-                             <!-- <a href="student-details.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-0{{i+ 1}}.jpg" alt="User Image"></a>
-                             --> <a href="student-details.html">{{students.name}}</a>
-                            </h2>
-                          </td>
-                          <td>{{students.age}}</td>
-                          <td>{{students.parentName}}</td>
-                          <td>{{students.mobileNumber}}</td>
-                          <td>{{students.address}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  </select>
+                  <div *ngIf="ReportsForm.get('type').invalid && ReportsForm.get('type').touched">
+                    <small *ngIf="ReportsForm.get('type').invalid && ReportsForm.get('type').touched"
+                      class="text-danger"> required</small>
                   </div>
                 </div>
-              </div>							
-            </div>					
-          </div>					
+              </div>
+
+
+              <div *ngIf="isShown" class="row container-fluid" id="divshow">
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label>Start Date</label>
+                    <div>
+                      <input type="date" class="form-control"
+                        [class.invalid]="ReportsForm.get('startdate').invalid && ReportsForm.get('startdate').touched"
+                        formControlName="startdate" max="{{currentDate|date:'yyyy-MM-dd'}}">
+                      <div *ngIf="ReportsForm.get('startdate').invalid && ReportsForm.get('startdate').touched">
+                        <small *ngIf="ReportsForm.get('startdate').invalid && ReportsForm.get('startdate').touched"
+                          class="text-danger"> *Date is required</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <div class="form-group">
+                    <label>End Date</label>
+                    <div>
+                      <input type="date" class="form-control"
+                        [class.invalid]="ReportsForm.get('enddate').invalid && ReportsForm.get('enddate').touched"
+                        formControlName="enddate" max="{{currentDate|date:'yyyy-MM-dd'}}">
+                      <div *ngIf="ReportsForm.get('enddate').invalid && ReportsForm.get('enddate').touched">
+                        <small *ngIf="ReportsForm.get('enddate').invalid && ReportsForm.get('enddate').touched"
+                          class="text-danger"> *Date is required</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
-        
-        <!-- Footer -->
-        <footer>
-          <p>Copyright © 2021 Impel.</p>					
-        </footer>
-        <!-- /Footer -->				
-        
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="card card-table">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+              class="table table-hover table-center mb-0 datatable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Fathers Name</th>
+                  <th>Mobile Number</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let students of lstStudents;let i = index">
+                  <td>DC{{students.id}}</td>
+                  <td>
+                    <h2 class="table-avatar">
+                      <!-- <a href="student-details.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-0{{i+ 1}}.jpg" alt="User Image"></a>
+                             --> <a href="student-details.html">{{students.name}}</a>
+                    </h2>
+                  </td>
+                  <td>{{students.age}}</td>
+                  <td>{{students.parentName}}</td>
+                  <td>{{students.mobileNumber}}</td>
+                  <td>{{students.type}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Copyright © 2021 Impel.</p>
+</footer>
+<!-- /Footer -->
