@@ -138,7 +138,7 @@ export class BlankpageMain1Component implements OnInit {
       this.enddate = moment(new Date()).format("yyyy-MM-DD")
       this.startdate = moment(this.enddate).subtract(1, 'M').format("yyyy-MM-DD");
       this.reportstartdate = this.startdate;
-      alert(this.reportstartdate);
+      // alert(this.reportstartdate);
     } else if (this.ReportsForm.get('type').value == "Last 3 months") {
 
       this.enddate = moment(new Date()).format("yyyy-MM-DD")
@@ -162,7 +162,7 @@ export class BlankpageMain1Component implements OnInit {
       "startdate": this.startdate,
       "enddate": this.enddate
     };
-    alert(JSON.stringify(this.startdate));
+    // alert(JSON.stringify(this.startdate));
     this.reportstartdate = JSON.stringify(this.startdate);
     this.loginService.getstudentsperdoj(this.datejoin).subscribe((data) => {
       this.lstStudents = data;

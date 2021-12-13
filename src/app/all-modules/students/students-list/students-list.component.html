@@ -31,9 +31,10 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Age</th>
-                  <th>Fathers Name</th>
+                  <th>Medical Problem</th>
                   <th>Mobile Number</th>
-                  <th>Address</th>
+                  <th>Type</th>
+                  <th>Status</th>
                   <th class="text-right">Action</th>
                 </tr>
               </thead>
@@ -47,9 +48,34 @@
                     </h2>
                   </td>
                   <td>{{students.age}}</td>
-                  <td>{{students.parentName}}</td>
+                  <!--<td>{{students.medprblm}}</td>
+                  -->
+                  <td *ngIf="students.medprblm == null;then Block1 else Block2"></td>
+                  <ng-template #Block1>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="badge rounded-pill bg-danger text-light">No</span>
+                  </ng-template>
+                  <ng-template #Block2>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="badge rounded-pill bg-info text-light">Yes</span>
+                  </ng-template>
+
                   <td>{{students.mobileNumber}}</td>
-                  <td>{{students.address}}</td>
+                  <td>{{students.type}}</td>
+                  <td *ngIf="students.is_active==0; then thenBlock else elseBlock"></td>
+                  <ng-template #thenBlock>
+
+                    <button type="button" class="btn btn-warning active btn-sm"
+                      (click)="openModal(editProfileModal,students)">Unapproved</button>
+                  </ng-template>
+                  <ng-template #elseBlock>
+
+                    <span class="badge rounded-pill bg-info text-light">Approved</span>
+                  </ng-template>
+
+                  <!--td *ngIf="students.is_active==0">Approve</td>-->
                   <td class="text-right">
                     <div class="actions">
                       <a routerLink="/students/students-edit" [queryParams]="{id: students.id}"
@@ -69,6 +95,26 @@
       </div>
     </div>
   </div>
+
+  <ng-template #editProfileModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="editProfileLabel">Approval Confirmation</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <p>studentid:DC{{ modalContent.id }}
+      </p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="modalsave(modalContent)">Yes</button>
+      </div>
+    </div>
+  </ng-template>
+
+
 </div>
 
 <!-- Footer -->

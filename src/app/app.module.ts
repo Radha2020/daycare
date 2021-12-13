@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
@@ -21,9 +22,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import {LoginService} from './services/login.service';
+import { LoginService } from './services/login.service';
 
-import {AppConfig} from './config';
+import { AppConfig } from './config';
 import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -36,7 +37,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RegisterComponent,
     ForgotpasswordComponent,
     ErrorpageComponent,
-  //  ProfileMainComponent
+    //  ProfileMainComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +47,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DataTablesModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 1500,
@@ -62,11 +64,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     })
   ],
   providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     LoginService,
     AppConfig,
     DatePipe,
-    
+
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
@@ -74,4 +76,4 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

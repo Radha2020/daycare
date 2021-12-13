@@ -7,18 +7,15 @@
           <li class="menu-title">
             <span>Main Menu</span>
           </li>
-          <li
-            [ngClass]="[activeRoute === 'dashboard' ? 'active' : 'submenu']">
-            <a
-              [ngClass]="[activeRoute === 'dashboard' ? 'active' : '']"
-              (click)="setActive()"
-              routerLink="/dashboard/dashboard-main"
-              ><i class="fas fa-user-graduate"></i> <span>  Dashboard</span>
-              
-             <!-- <span class="menu-arrow"></span
-            >--></a>
+          <li [ngClass]="[activeRoute === 'dashboard' ? 'active' : 'submenu']">
+            <a [ngClass]="[activeRoute === 'dashboard' ? 'active' : '']" (click)="setActive()"
+              routerLink="/dashboard/dashboard-main"><i class="fas fa-user-graduate"></i> <span> Dashboard</span>
+
+              <!-- <span class="menu-arrow"></span
+            >-->
+            </a>
             <ul>
-             <!-- <li>
+              <!-- <li>
                 <a
                   [ngClass]="[
                     active2Route === 'dashboard-main' ? 'active' : ''
@@ -50,25 +47,17 @@
               </li>-->
             </ul>
           </li>
-<li
-  [ngClass]="[activeRoute === 'blankpage' ? 'active' : 'submenu']">
-  <a
-    [ngClass]="[activeRoute === 'blankpage' ? 'active' : '']"
-    (click)="setActive()"
-   
-    ><i class="fas fa-user-graduate"></i> <span>  Reports</span>
-    <span class="menu-arrow"></span>
-  </a>
-  <ul>
-    <li>
-      <a
-        [ngClass]="[active2Route === 'blankpage-main' ? 'active' : '']"
-        (click)="setActive()"
-        routerLink="/blankpage/blankpage-main"
-        >Active Students</a
-      >
-    </li>
-    <!--<li>
+          <li [ngClass]="[activeRoute === 'blankpage' ? 'active' : 'submenu']">
+            <a [ngClass]="[activeRoute === 'blankpage' ? 'active' : '']" (click)="setActive()"><i
+                class="fas fa-user-graduate"></i> <span> Reports</span>
+              <span class="menu-arrow"></span>
+            </a>
+            <ul>
+              <li>
+                <a [ngClass]="[active2Route === 'blankpage-main' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/blankpage/blankpage-main">Active Students</a>
+              </li>
+              <!--<li>
       <a
         [ngClass]="[
           active2Route === 'students-details' ? 'active' : ''
@@ -78,15 +67,11 @@
         >Student View</a
       >
     </li>-->
-    <li>
-      <a
-        [ngClass]="[active2Route === 'blankpage-main1' ? 'active' : '']"
-        (click)="setActive()"
-        routerLink="/blankpage/blankpage-main1"
-        >Join Date</a
-      >
-    </li>
-    <!--<li>
+              <li>
+                <a [ngClass]="[active2Route === 'blankpage-main1' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/blankpage/blankpage-main1">Date</a>
+              </li>
+              <!--<li>
       <a
         [ngClass]="[active2Route === 'students-edit' ? 'active' : '']"
         (click)="setActive()"
@@ -94,10 +79,10 @@
         >Student Edit</a
       >
     </li>-->
-  </ul>
+            </ul>
 
 
-</li>
+          </li>
 
           <!-- <li [ngClass]="[activeRoute === 'dashboard' ? 'active' : '']">
             <a routerLink="/dashboard/dashboard-main" (click)="setActive()"
@@ -107,18 +92,13 @@
           
           Student Dashboard -->
           <li [ngClass]="[activeRoute === 'students' ? 'active' : 'submenu']">
-            <a
-              [ngClass]="[activeRoute === 'students' ? 'active' : '']"
-              (click)="setActive()" ><i class="fas fa-user-graduate"></i> <span> Students</span>
+            <a [ngClass]="[activeRoute === 'students' ? 'active' : '']" (click)="setActive()"><i
+                class="fas fa-user-graduate"></i> <span> Students</span>
               <span class="menu-arrow"></span></a>
             <ul>
               <li>
-                <a
-                  [ngClass]="[active2Route === 'students-list' ? 'active' : '']"
-                  (click)="setActive()"
-                  routerLink="/students/students-list"
-                  >View</a
-                >
+                <a [ngClass]="[active2Route === 'students-list' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/students/students-list">View</a>
               </li>
               <!--<li>
                 <a
@@ -131,12 +111,8 @@
                 >
               </li>-->
               <li>
-                <a
-                  [ngClass]="[active2Route === 'students-add' ? 'active' : '']"
-                  (click)="setActive()"
-                  routerLink="/students/students-add"
-                  >Add</a
-                >
+                <a [ngClass]="[active2Route === 'students-add' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/students/students-add">Add</a>
               </li>
               <!--<li>
                 <a
@@ -149,122 +125,67 @@
             </ul>
           </li>
           <li [ngClass]="[activeRoute === 'teachers' ? 'active' : 'submenu']">
-            <a
-              [ngClass]="[activeRoute === 'teachers' ? 'active' : '']"
-              (click)="setActive()"
-              ><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span>
-              <span class="menu-arrow"></span
-            ></a>
+            <a [ngClass]="[activeRoute === 'teachers' ? 'active' : '']" (click)="setActive()"><i
+                class="fas fa-chalkboard-teacher"></i> <span> Teachers</span>
+              <span class="menu-arrow"></span></a>
             <ul>
               <li>
-                <a
-                  [ngClass]="[active2Route === 'teachers-list' ? 'active' : '']"
-                  (click)="setActive()"
-                  routerLink="/teachers/teachers-list"
-                  >Teacher List</a
-                >
+                <a [ngClass]="[active2Route === 'teachers-list' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/teachers/teachers-list">Teacher List</a>
               </li>
               <li>
-                <a
-                  [ngClass]="[
+                <a [ngClass]="[
                     active2Route === 'teachers-details' ? 'active' : ''
-                  ]"
-                  (click)="setActive()"
-                  routerLink="/teachers/teachers-details"
-                  >Teacher View</a
-                >
+                  ]" (click)="setActive()" routerLink="/teachers/teachers-details">Teacher View</a>
               </li>
               <li>
-                <a
-                  [ngClass]="[active2Route === 'teachers-add' ? 'active' : '']"
-                  (click)="setActive()"
-                  routerLink="/teachers/teachers-add"
-                  >Teacher Add</a
-                >
+                <a [ngClass]="[active2Route === 'teachers-add' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/teachers/teachers-add">Teacher Add</a>
               </li>
               <li>
-                <a
-                  [ngClass]="[active2Route === 'teachers-edit' ? 'active' : '']"
-                  (click)="setActive()"
-                  routerLink="/teachers/teachers-edit"
-                  >Teacher Edit</a
-                >
+                <a [ngClass]="[active2Route === 'teachers-edit' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/teachers/teachers-edit">Teacher Edit</a>
               </li>
             </ul>
           </li>
-          <li
-            [ngClass]="[activeRoute === 'departments' ? 'active' : 'submenu']"
-          >
-            <a
-              [ngClass]="[activeRoute === 'departments' ? 'active' : '']"
-              (click)="setActive()"
-              ><i class="fas fa-building"></i> <span> Departments</span>
-              <span class="menu-arrow"></span
-            ></a>
+          <li [ngClass]="[activeRoute === 'departments' ? 'active' : 'submenu']">
+            <a [ngClass]="[activeRoute === 'departments' ? 'active' : '']" (click)="setActive()"><i
+                class="fas fa-building"></i> <span> Departments</span>
+              <span class="menu-arrow"></span></a>
             <ul>
               <li>
-                <a
-                  [ngClass]="[
+                <a [ngClass]="[
                     active2Route === 'departments-list' ? 'active' : ''
-                  ]"
-                  (click)="setActive()"
-                  routerLink="/departments/departments-list"
-                  >Department List</a
-                >
+                  ]" (click)="setActive()" routerLink="/departments/departments-list">Department List</a>
               </li>
               <li>
-                <a
-                  [ngClass]="[
+                <a [ngClass]="[
                     active2Route === 'departments-add' ? 'active' : ''
-                  ]"
-                  (click)="setActive()"
-                  routerLink="/departments/departments-add"
-                  >Department Add</a
-                >
+                  ]" (click)="setActive()" routerLink="/departments/departments-add">Department Add</a>
               </li>
               <li>
-                <a
-                  [ngClass]="[
+                <a [ngClass]="[
                     active2Route === 'departments-edit' ? 'active' : ''
-                  ]"
-                  (click)="setActive()"
-                  routerLink="/departments/departments-edit"
-                  >Department Edit</a
-                >
+                  ]" (click)="setActive()" routerLink="/departments/departments-edit">Department Edit</a>
               </li>
             </ul>
           </li>
           <li [ngClass]="[activeRoute === 'subjects' ? 'active' : 'submenu']">
-            <a
-              [ngClass]="[activeRoute === 'subjects' ? 'active' : '']"
-              (click)="setActive()"
-              ><i class="fas fa-book-reader"></i> <span> Subjects</span>
-              <span class="menu-arrow"></span
-            ></a>
+            <a [ngClass]="[activeRoute === 'subjects' ? 'active' : '']" (click)="setActive()"><i
+                class="fas fa-book-reader"></i> <span> Subjects</span>
+              <span class="menu-arrow"></span></a>
             <ul>
               <li>
-                <a
-                  [ngClass]="[active2Route === 'subjects-list' ? 'active' : '']"
-                  (click)="setActive()"
-                  routerLink="/subjects/subjects-list"
-                  >Subject List</a
-                >
+                <a [ngClass]="[active2Route === 'subjects-list' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/subjects/subjects-list">Subject List</a>
               </li>
               <li>
-                <a
-                  [ngClass]="[active2Route === 'subjects-add' ? 'active' : '']"
-                  (click)="setActive()"
-                  routerLink="/subjects/subjects-add"
-                  >Subject Add</a
-                >
+                <a [ngClass]="[active2Route === 'subjects-add' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/subjects/subjects-add">Subject Add</a>
               </li>
               <li>
-                <a
-                  [ngClass]="[active2Route === 'subjects-edit' ? 'active' : '']"
-                  (click)="setActive()"
-                  routerLink="/subjects/subjects-edit"
-                  >Subject Edit</a
-                >
+                <a [ngClass]="[active2Route === 'subjects-edit' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/subjects/subjects-edit">Subject Edit</a>
               </li>
             </ul>
           </li>
@@ -274,65 +195,50 @@
           </li>
 
           <li [ngClass]="[activeRoute === 'accounts' ? 'active' : 'submenu']">
-            <a
-              [ngClass]="[activeRoute === 'accounts' ? 'active' : '']"
-              (click)="setActive()"
-              ><i class="fas fa-file-invoice-dollar"></i>
-              <span> Accounts</span> <span class="menu-arrow"></span
-            ></a>
+            <a [ngClass]="[activeRoute === 'accounts' ? 'active' : '']" (click)="setActive()"><i
+                class="fas fa-file-invoice-dollar"></i>
+              <span> Accounts</span> <span class="menu-arrow"></span></a>
             <ul>
-              <li><a [ngClass]="[active2Route === 'fees-collection' ? 'active' : '']"
-                (click)="setActive()"
-                routerLink="/accounts/fees-collection">Fees Collection</a></li>
-              <li><a [ngClass]="[active2Route === 'expenses' ? 'active' : '']"
-                (click)="setActive()"
-                routerLink="/accounts/expenses">Expenses</a></li>
-              <li><a [ngClass]="[active2Route === 'salary' ? 'active' : '']"
-                (click)="setActive()"
-                routerLink="/accounts/salary">Salary</a></li>
-              <li><a [ngClass]="[active2Route === 'add-fees' ? 'active' : '']"
-                (click)="setActive()"
-                routerLink="/accounts/add-fees">Add Fees</a></li>
-              <li><a [ngClass]="[active2Route === 'add-expenses' ? 'active' : '']"
-                (click)="setActive()"
-                routerLink="/accounts/add-expenses">Add Expenses</a></li>
-              <li><a [ngClass]="[active2Route === 'add-salary' ? 'active' : '']"
-                (click)="setActive()"
-                routerLink="/accounts/add-salary">Add Salary</a></li>
+              <li><a [ngClass]="[active2Route === 'fees-collection' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/accounts/fees-collection">Fees Collection</a></li>
+              <li><a [ngClass]="[active2Route === 'expenses' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/accounts/expenses">Expenses</a></li>
+              <li><a [ngClass]="[active2Route === 'salary' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/accounts/salary">Salary</a></li>
+              <li><a [ngClass]="[active2Route === 'add-fees' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/accounts/add-fees">Add Fees</a></li>
+              <li><a [ngClass]="[active2Route === 'add-expenses' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/accounts/add-expenses">Add Expenses</a></li>
+              <li><a [ngClass]="[active2Route === 'add-salary' ? 'active' : '']" (click)="setActive()"
+                  routerLink="/accounts/add-salary">Add Salary</a></li>
             </ul>
           </li>
           <li [ngClass]="[activeRoute === 'holiday' ? 'active' : '']">
-            <a routerLink="/holiday/holiday-main" (click)="setActive()"
-              ><i class="fas fa-holly-berry"></i> <span>Holiday</span></a
-            >
+            <a routerLink="/holiday/holiday-main" (click)="setActive()"><i class="fas fa-holly-berry"></i>
+              <span>Holiday</span></a>
           </li>
           <li [ngClass]="[activeRoute === 'fees' ? 'active' : '']">
-            <a routerLink="/fees/fees-main" (click)="setActive()"
-              ><i class="fas fa-comment-dollar"></i> <span>Fees</span></a
-            >
+            <a routerLink="/fees/fees-main" (click)="setActive()"><i class="fas fa-comment-dollar"></i>
+              <span>Fees</span></a>
           </li>
           <li [ngClass]="[activeRoute === 'examlist' ? 'active' : '']">
-            <a routerLink="/examlist/examlist-main" (click)="setActive()"
-              ><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a
-            >
+            <a routerLink="/examlist/examlist-main" (click)="setActive()"><i class="fas fa-clipboard-list"></i>
+              <span>Exam list</span></a>
           </li>
           <li [ngClass]="[activeRoute === 'events' ? 'active' : '']">
-            <a routerLink="/events/events-main" (click)="setActive()"
-              ><i class="fas fa-calendar-day"></i> <span>Events</span></a
-            >
+            <a routerLink="/events/events-main" (click)="setActive()"><i class="fas fa-calendar-day"></i>
+              <span>Events</span></a>
           </li>
           <li [ngClass]="[activeRoute === 'timetable' ? 'active' : '']">
-            <a routerLink="/timetable/timetable-main" (click)="setActive()"
-              ><i class="fas fa-table"></i> <span>Time Table</span></a
-            >
+            <a routerLink="/timetable/timetable-main" (click)="setActive()"><i class="fas fa-table"></i> <span>Time
+                Table</span></a>
           </li>
           <li [ngClass]="[activeRoute === 'library' ? 'active' : '']">
-            <a routerLink="/library/library-main" (click)="setActive()"
-              ><i class="fas fa-book"></i> <span>Library</span></a
-            >
+            <a routerLink="/library/library-main" (click)="setActive()"><i class="fas fa-book"></i>
+              <span>Library</span></a>
           </li>
 
-         <!-- <li class="menu-title">
+          <!-- <li class="menu-title">
             <span>Pages</span>
           </li>
 
@@ -360,19 +266,16 @@
           </li>
 
           <li [ngClass]="[activeRoute === 'sports' ? 'active' : '']">
-            <a routerLink="/sports/sports-main" (click)="setActive()"
-              ><i class="fas fa-baseball-ball"></i> <span>Sports</span></a
-            >
+            <a routerLink="/sports/sports-main" (click)="setActive()"><i class="fas fa-baseball-ball"></i>
+              <span>Sports</span></a>
           </li>
           <li [ngClass]="[activeRoute === 'hostel' ? 'active' : '']">
-            <a routerLink="/hostel/hostel-main" (click)="setActive()"
-              ><i class="fas fa-hotel"></i> <span>Hostel</span></a
-            >
+            <a routerLink="/hostel/hostel-main" (click)="setActive()"><i class="fas fa-hotel"></i>
+              <span>Hostel</span></a>
           </li>
           <li [ngClass]="[activeRoute === 'transport' ? 'active' : '']">
-            <a routerLink="/transport/transport-main" (click)="setActive()"
-              ><i class="fas fa-bus"></i> <span>Transport</span></a
-            >
+            <a routerLink="/transport/transport-main" (click)="setActive()"><i class="fas fa-bus"></i>
+              <span>Transport</span></a>
           </li>
           <!--<li class="menu-title">
             <span>UI Interface</span>

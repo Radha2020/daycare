@@ -97,7 +97,7 @@ export class BlankpageMainComponent implements OnInit {
   }
   // Get Students List  Api Call
   loadStudents() {
-    this.loginService.getstudents().subscribe((data) => {
+    this.loginService.getActiveStudents().subscribe((data) => {
       // alert(JSON.stringify(data));
       //this.srvModuleService.get(this.url).subscribe((data) => {
       this.lstStudents = data;

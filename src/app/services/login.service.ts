@@ -30,6 +30,16 @@ export class LoginService {
 
 
   }
+
+  statuschange(Details) {
+
+    return this.Http.post(this.conf.url + "/daycare/Api/statusupdate", JSON.stringify(Details)).pipe(map(res => {
+      return res
+    }));
+
+
+  }
+
   registerdetails(Details) {
     alert(JSON.stringify(Details));
     return this.Http.post(this.conf.url + "/daycare/Api/mumnestreg", JSON.stringify(Details)).pipe(map(res => {
@@ -41,6 +51,11 @@ export class LoginService {
     return this.Http.post(this.conf.url + "/daycare/Api/studreg", formData).pipe(map(res => {
       return res
     }));
+  }
+  getActiveStudents() {
+
+    return this.Http.get(this.conf.url + "/daycare/Api/getactivestudreports").pipe(map(res => { return res }));
+
   }
   getstudents() {
     return this.Http.get(this.conf.url + "/daycare/Api/getstud").pipe(map(res => { return res }));
