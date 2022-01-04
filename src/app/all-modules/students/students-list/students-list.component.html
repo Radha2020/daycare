@@ -50,7 +50,7 @@
                   <td>{{students.age}}</td>
                   <!--<td>{{students.medprblm}}</td>
                   -->
-                  <td *ngIf="students.medprblm == null;then Block1 else Block2"></td>
+                  <td *ngIf="students.medprblm == '';then Block1 else Block2"></td>
                   <ng-template #Block1>
                     <br>
                     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;

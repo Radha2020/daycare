@@ -29,7 +29,6 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Age</th>
-                  <th>Medical Problem</th>
                   <th>Mobile Number</th>
                   <th>type</th>
                 </tr>
@@ -45,7 +44,9 @@
                   </td>
 
                   <td> {{students.age}}</td>
-                  <td *ngIf="students.medprblm == null;then thenBlock else elseBlock"></td>
+                  <!-- <td> {{students.medprblm}}</td>
+
+                  <td *ngIf="students.medprblm == '' ;then thenBlock else elseBlock "></td>
                   <ng-template #thenBlock>
                     <br>
                     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -56,7 +57,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="badge rounded-pill bg-info text-light">Yes</span>
                   </ng-template>
-
+                -->
                   <td>{{students.mobileNumber}}</td>
                   <td>{{students.type}}</td>
                 </tr>
